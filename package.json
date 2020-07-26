@@ -5,9 +5,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --config webpack.config.js",
+    "build:dev": "webpack --config webpack.config.js",
+    "build:prod": "webpack -p --env production --config webpack.config.js",
     "build-babel": "babel src\\app.js --out-file=public\\scripts\\app.js --presets=env,react",
     "dev-server": "webpack-dev-server",
+    "serve": "live-server public/",
     "test": "jest --watchAll --no-cache --config=jest.config.json"
   },
   "dependencies": {
@@ -22,6 +24,7 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.5.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "jest": "^26.1.0",
     "live-server": "^1.2.1",
     "moment": "^2.27.0",
