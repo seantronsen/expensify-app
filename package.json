@@ -9,7 +9,6 @@
     "build:prod": "webpack -p --env production --config webpack.config.js",
     "build-babel": "babel src\\app.js --out-file=public\\scripts\\app.js --presets=env,react",
     "dev-server": "webpack-dev-server",
-    "serve": "live-server public/",
     "test": "jest --watchAll --no-cache --config=jest.config.json",
     "start": "node server/server.js",
     "heroku-postbuild": "npm run build:prod"
@@ -23,13 +22,8 @@
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "css-loader": "^3.6.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "enzyme-to-json": "^3.5.0",
     "express": "^4.17.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "jest": "^26.1.0",
-    "live-server": "^1.2.1",
     "moment": "^2.27.0",
     "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",
@@ -41,20 +35,24 @@
     "react-modal": "^3.11.2",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
-    "react-test-renderer": "^16.13.1",
     "redux": "^4.0.5",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
     "uuid": "^8.2.0",
     "validator": "^13.1.1",
-    "webpack": "^4.43.0",
-    "webpack-dev-server": "^3.11.0"
+    "webpack": "^4.43.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "webpack-cli": "^3.3.12"
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.5.0",
+    "jest": "^26.1.0",
+    "react-test-renderer": "^16.13.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }
