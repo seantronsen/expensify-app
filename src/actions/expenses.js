@@ -31,3 +31,28 @@ export const editExpense = (id, updates) => ({
   id,
   updates,
 });
+
+// SET_EXPENSES
+export const setExpenses = expenses => ({
+  type: "SET_EXPENSES",
+  expenses,
+});
+
+// 1. fetch all expense data from the data source
+// 2. parse that data into an array
+// 3. Dispatch SET_EXPENSES
+
+export const startSetExpenses = () => {
+  return dispatch => {
+    return database
+      .ref("expenses")
+      .once("value")
+      .then(snapshot => {
+        const expenses = [];
+        snapshot.forEach(item => {
+          expenses.push({ ...item.val(), id: item.key });
+        });
+        dispatch(setExpenses(expenses));
+      });
+  };
+};
