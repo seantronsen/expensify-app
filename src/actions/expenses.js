@@ -47,15 +47,23 @@ export const editExpense = (id, updates) => ({
   updates,
 });
 
+export const startEditExpense = (id, updates) => {
+  return dispatch => {
+    return database
+      .ref(`expenses/${id}`)
+      .set(updates)
+      .then(() => {
+        dispatch(editExpense(id, updates));
+      })
+      .catch(err => console.log(err));
+  };
+};
+
 // SET_EXPENSES
 export const setExpenses = expenses => ({
   type: "SET_EXPENSES",
   expenses,
 });
-
-// 1. fetch all expense data from the data source
-// 2. parse that data into an array
-// 3. Dispatch SET_EXPENSES
 
 export const startSetExpenses = () => {
   return dispatch => {
